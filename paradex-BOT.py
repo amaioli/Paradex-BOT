@@ -15,7 +15,7 @@ with open('config.yaml', 'r') as file:
 async def main(loop):
 
         api_server ="https://api.testnet.paradex.trade/v1" if config["config"]["env"] == "testnet" else "https://api.prod.paradex.trade/v1"
-        paradex_config = await get_paradex_config("https://api.testnet.paradex.trade/v1")
+        paradex_config = await get_paradex_config(api_server)
         global paradex
         paradex = Paradex(config, paradex_config, api_server)
 
