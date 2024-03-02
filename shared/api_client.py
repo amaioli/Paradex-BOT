@@ -399,7 +399,7 @@ async def delete_all_orders_payload(paradex_http_url: str, paradex_jwt: str, pai
                 status_code: int = response.status
                 response: Dict = await response.json(content_type=None)
                 check_token_expiry(status_code=status_code, response=response)
-                if status_code == 201 or status_code == 204:
+                if status_code == 200:
                     logging.info(f"Order cancelled: {status_code} | Id: {order_id}")
                     ret_val = True
                 else:
